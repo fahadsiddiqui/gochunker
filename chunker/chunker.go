@@ -17,14 +17,6 @@ func validateChunkSize(str string, csize int) bool {
 	return true
 }
 
-func totalChunks(slen int, csize int) int {
-	if slen%csize > 0 {
-		return slen/csize + 1
-	}
-
-	return slen / csize
-}
-
 func Chunker(str string, csize int) ([]string, error) {
 	if !validateChunkSize(str, csize) {
 		return []string{}, errors.New("input string has a word bigger than chunk size, unexpected behaviour")
@@ -34,7 +26,7 @@ func Chunker(str string, csize int) ([]string, error) {
 	i := 0
 	j := csize - 1
 
-	chunks := make([]string, totalChunks(slen, csize))
+	chunks := make([]string, 0)
 
 	for j < slen {
 		savej := j
