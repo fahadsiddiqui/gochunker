@@ -16,9 +16,7 @@ import (
 func main() {
 	chnks, _ := chunker.Chunker("hey, what's up what are you doing these days", 12)
 	for _, ch := range chnks {
-		if ch != "" {
-			fmt.Println(ch)
-		}
+		fmt.Println(ch)
 	}
 }
 ```
